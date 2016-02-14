@@ -1,0 +1,34 @@
+{
+	"owner": "321302",
+	"lastUpdatedBy": "321302",
+	"lastRevision": 141199588,
+	"team": null,
+	"id": "ed8f1e24-126a-0dd6-b8a5-e182530dde00",
+	"name": "HW1",
+	"description": null,
+	"remoteLink": null,
+	"order": [
+		"1ad9104c-1c0f-78f2-37b9-ee5b13a08785"
+	],
+	"requests": [
+		{
+			"folder": null,
+			"id": "1ad9104c-1c0f-78f2-37b9-ee5b13a08785",
+			"name": "https://www.googleapis.com/books/v1/volumes?q=turing",
+			"dataMode": "params",
+			"data": [],
+			"rawModeData": null,
+			"descriptionFormat": "html",
+			"description": "",
+			"headers": "",
+			"method": "GET",
+			"pathVariables": {},
+			"url": "https://www.googleapis.com/books/v1/volumes?q=turing",
+			"preRequestScript": "",
+			"tests": "var parsedData = JSON.parse(responseBody);\nvar bookTitle = parsedData.items[0].volumeInfo.title;\nconsole.log(\"title \" + bookTitle);\nvar lookFor = /turing/i;\nvar hit = lookFor.test(bookTitle);\nconsole.log(hit);\ntests[\"Status code is 200\"] = responseCode.code === 200;\ntests[\"Got results?\"] = parsedData.totalItems > 0\ntests[\"Title confirmation\"] = hit === true;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"collectionId": "ed8f1e24-126a-0dd6-b8a5-e182530dde00"
+		}
+	]
+}
